@@ -1,6 +1,7 @@
-#ifdef GL_ES
-precision mediump float;
-#endif
+#ifdef GL_ES                 //Tell openGl that it's an OpenGL ES shader
+precision mediump float;    //The GPU says how accurate the lowp (low precision), 
+                            //mediump (medium precision) highp (high precision) float should be.
+#endif                      //End of definition statement
 
 void main()
 {
