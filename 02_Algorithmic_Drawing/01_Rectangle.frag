@@ -1,3 +1,7 @@
+/********************
+2020 Erick Andrade - Original Code ->  https://thebookofshaders.com/
+********************/
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -19,8 +23,6 @@ void main()
     float mr = marginRight.x * marginRight.y;
     
     color = vec3(ml * mr);
-
-
 
     gl_FragColor = vec4(color,1.0);
 }

@@ -1,3 +1,7 @@
+/********************
+2020 Erick Andrade - Original Code ->  https://thebookofshaders.com/
+********************/
+
 #ifdef GL_ES
 precision mediump float;
 #endif
