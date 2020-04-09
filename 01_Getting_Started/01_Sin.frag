@@ -10,6 +10,7 @@ uniform float u_time; // <- this uniform represents time per second
 
 void main()
 {
+    
     /* Vector 4 represents R.G.B.A ranging from 0.0 to 1.0
     below a sine function for each color channel */
 

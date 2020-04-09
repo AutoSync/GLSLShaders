@@ -44,7 +44,7 @@ void main()
     // y = pow(cos(PI * uv.x / 2.0),sin(tm));
     // y = 1.0 - pow(abs(sin(PI * uv.x / 2.0 )),abs(sin(tm)));
     // y = pow(min(cos(PI * uv.x / 2.0), 1.0 - abs(uv.x)),abs(cos(tm)));
-    y = 1.0 - pow(max(0.0, abs(uv.x) * 2.0 - 1.0), abs(sin(tm))*5.0);
+    //y = 1.0 - pow(max(0.0, abs(uv.x) * 2.0 - 1.0), abs(sin(tm))*5.0);
 
     vec3 color = vec3(y);
     
