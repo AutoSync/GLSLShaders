@@ -21,22 +21,24 @@ float plot (vec2 st, float pct){
 }
 
 void main() {
-    vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    float vt = u_time / 2.0;
+    vec2 uv = gl_FragCoord.xy/u_resolution.xy;
+    float t = u_time / 2.0;
     vec3 color = vec3(0.0);
 
-    vec3 pct = vec3(st.x);
+    vec3 pct = vec3(1.0);
 
-     pct.r = smoothstep(0.0,1.0, abs(sin(vt*1.2+st.x)));
-     pct.g = sin(abs(sin(vt*0.32+st.x))*PI);
-     pct.b = pow( abs(sin(vt*.112+st.x)),0.5);
+     pct.r = smoothstep(0.0,1.0, abs(sin(t*1.2+uv.x)));
+     pct.g = sin(abs(sin(t*0.32+uv.x))*PI);
+     pct.b = pow( abs(sin(t*.112+uv.x)),0.5);
 
-    color = mix(colorA, colorB, pct);
+    //color = mix(colorA, colorB, pct);
+    color = vec3(uv.x + t / 6.0, uv.y, 1.0);
 
     // Plot transition lines for each channel
-    color = mix(color,vec3(1.0,0.0,0.0),plot(st,pct.r));
-    color = mix(color,vec3(0.0,1.0,0.0),plot(st,pct.g));
-    color = mix(color,vec3(0.0,0.0,1.0),plot(st,pct.b));
+    color = mix(color,vec3(1.0,0.0,0.0),plot(uv,pct.r));
+    color = mix(color,vec3(0.0,1.0,0.0),plot(uv,pct.g));
+    color = mix(color,vec3(0.0,0.0,1.0),plot(uv,pct.b));
+    
 
     gl_FragColor = vec4(color,1.0);
 }

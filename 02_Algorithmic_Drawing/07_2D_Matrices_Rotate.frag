@@ -40,11 +40,14 @@ void main()
     vec3 color = vec3(0.0);
 
     uv -= vec2(0.5);
-    uv = rotate2D( sin(t) * PI) * uv;
+    //uv = rotate2D( sin(t) * PI) * uv;
+    uv = rotate2D(0.25 * PI) * uv; // Manual Rotate
     uv += vec2(0.5);
 
     vec3 shapeCross = vec3(cross(uv, 0.4));
+    
     color = shapeCross;
+    color = vec3(uv.x, uv.y, 1.0) + color;
 
     gl_FragColor = vec4(color, 1.0);
 }

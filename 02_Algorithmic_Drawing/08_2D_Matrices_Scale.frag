@@ -40,13 +40,15 @@ void main()
     vec3 color = vec3(0.0);
 
     uv -= vec2(0.5);
+    //uv = scale2D(vec2(1.0)) * uv ; // Manual code
     uv = scale2D( vec2(sin(t) + 2.0 ) ) * uv;
+    
     uv += vec2(0.5);
 
     vec3 shapeCross = vec3(cross(uv, 0.4));
     
-    color = vec3(uv.x, uv.y, 1.0); // Plane UV
-    color = shapeCross + color;
+    color = shapeCross;
+    color = vec3(uv.x, uv.y, 1.0) + color; // Plane UV
     
     gl_FragColor = vec4(color, 1.0);
 }

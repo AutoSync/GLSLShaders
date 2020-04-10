@@ -26,30 +26,20 @@ float cross(in vec2 _uv, float _size)
             box(_uv, vec2(_size/4.0, _size));
 }
 
-float deltaRot(float speed)
-{
-    vec2 uv = gl_FragCoord.xy /u_resolution.xy;
-    vec2 pos = vec2(0.5) - uv;
-    float radius = length(pos) * 3.0;
-    float angle = atan(pos.x, pos.y);
-
-    return angle + u_time * speed;
-}
-
 void main()
 {
     vec2 uv = gl_FragCoord.xy/u_resolution.xy;
     vec3 color = vec3(0.0);
-    float s = 0.5;
+    float s = 1.0;
 
     vec2 translate = vec2(cos(u_time * s), sin(u_time * s));
-    uv += translate*0.35;
+    uv += translate*0.25;
 
 
     vec3 shape =  vec3(cross(uv, 0.335));
     
     color += shape;
-    //color = vec3(uv.x,uv.y, 0.0) + shape; // view uv movement
+    color = vec3(uv.x,uv.y, 1.0) + shape; // view uv movement
 
     gl_FragColor = vec4(color, 1.0);
 
